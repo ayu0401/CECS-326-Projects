@@ -10,30 +10,29 @@ public class QuoteServer
 {
     public static void main(String[] args) {
         try{
-            ServerSocket sock = new ServerSocket(6017);
+            // Starts server and waits for a connection
+            ServerSocket server = new ServerSocket(6017);
 
-            /*now listen for connections */
+            System.out.println("Server has started up!");
+            System.out.println("Waiting for client...");
 
             while(true){
-                Socket client = sock.accept(); //trying to accept the port 6017
+                Socket socket = server.accept();
 
-                PrintWriter pout = new PrintWriter(client.getOutputStream(), true);
+                System.out.println("Client has been accepted");
 
+                //server is going to send a quote into the socket
 
-                /* write the Date to the socket */
+                PrintWriter pout = new PrintWriter(socket.getOutputStream(), true);
 
-                pout.println("this project aint bussin man....");
+                pout.println("Hi everybody this is the quote of the day");
 
+                // close the sockets connection
 
-                /*close the socket and resume */
-                /* listen for connection */
-
-                client.close();
-
-
+                socket.close();
             }
-        }
 
+        }
         catch(IOException ioe){
             System.err.println(ioe);
         }
