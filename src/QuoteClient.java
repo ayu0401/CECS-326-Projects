@@ -11,10 +11,24 @@ public class QuoteClient
 	//Your code is here
     public static void main(String[] args) {
         try{
+            String quote;
             //creates the socket so we can connect to the port that the server has opened
-            Socket socket = new Socket("127.0.0.1", 6017);
+            Socket socket = new Socket("127.0.0.1", 6013);
 
-            //get the input that was put into the socket
+            //receive the output from the server
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+            //read the output from server within inputStream
+            while((quote = in.readLine()) != null){
+                System.out.println(quote);
+            }
+
+            //close the socket
+            //close the stream
+            socket.close();
+            in.close();
+
+
 
         }
         catch(UnknownHostException err){
