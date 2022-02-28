@@ -13,7 +13,7 @@ public class QuoteClient
         try{
             String quote;
             //creates the socket so we can connect to the port that the server has opened
-            Socket socket = new Socket("127.0.0.1", 6013);
+            Socket socket = new Socket("127.0.0.1", 6017);
 
             //receive the output from the server
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));

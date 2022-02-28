@@ -11,7 +11,7 @@ public class QuoteServer
     public static void main(String[] args) {
         try{
             // Starts server and waits for a connection
-            ServerSocket server = new ServerSocket(6013);
+            ServerSocket server = new ServerSocket(6017);
 
             System.out.println("Server has started up!");
             System.out.println("Waiting for client...");
